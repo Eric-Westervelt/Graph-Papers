@@ -1,0 +1,84 @@
+\documentclass[letterpaper]{article}
+\usepackage[margin=0in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[pdftex, hidelinks]{hyperref}
+
+\begin{document}
+\pagestyle{empty}
+
+% Define the default appearance for text fields
+\def\DefaultHugeBold{
+  \DeclareFontFamily{T1}{cmr}{}
+  \DeclareFontShape{T1}{cmr}{bx}{n}{<-> cmbx12}{}
+  \fontsize{24}{28}\selectfont\bfseries
+}
+
+% Command to draw a box number field with "Written Practice" prefix
+\newcommand{\CustomBox}[3]{% #1=X, #2=Y, #3=Value
+    \node[anchor=north west] at (#1, #2) {
+        \TextField[name=field#3, width=180pt, height=26pt, bordercolor=, align=0, value={Written Practice #3:}, charsize=14pt]{}
+    };
+}
+
+% --- PAGE 1: Power Ups + Written Practice 1-5 ---
+\begin{Form}
+\begin{tikzpicture}[remember picture, overlay, shift={(current page.south west)}]
+    \draw[cyan!30, thin] (0,0) grid [step=0.25in] (8.5in, 11in);
+
+    % Header (Name, Date, Lesson)
+    \node[anchor=west, font=\Large\bfseries] at (0.4in, 10.35in) {Lesson:};
+    \node[anchor=west] at (1.2in, 10.45in) {\TextField[name=L1, width=0.7in, height=0.3in, bordercolor=]{}};
+    \draw[ultra thick] (1.2in, 10.25in) -- (2in, 10.25in);
+    
+    \node[anchor=west, font=\Large\bfseries] at (2.1in, 10.35in) {Date:};
+    \node[anchor=west] at (2.8in, 10.45in) {\TextField[name=D1, width=2in, height=0.3in, bordercolor=]{}};
+    \draw[ultra thick] (2.8in, 10.25in) -- (4.9in, 10.25in);
+    
+    \node[anchor=west, font=\Large\bfseries] at (5in, 10.35in) {Name:};
+    \node[anchor=west] at (5.75in, 10.45in) {\TextField[name=N1, width=2.35in, height=0.3in, bordercolor=]{}};
+    \draw[ultra thick] (5.75in, 10.25in) -- (8.2in, 10.25in);
+
+    % Grid: Top row merged for Power Ups
+    \draw[black, ultra thick] (0, 10in) -- (8.5in, 10in);
+    \draw[black, ultra thick] (0, 6.66in) -- (8.5in, 6.66in);
+    \draw[black, ultra thick] (0, 3.33in) -- (8.5in, 3.33in);
+    \draw[black, ultra thick] (0, 0.05in) -- (8.5in, 0.05in);
+    \draw[black, ultra thick] (4.25in, 0in) -- (4.25in, 6.66in); 
+
+    % Power Ups Label
+    \node[anchor=north west] at (0.3in, 9.95in) {\TextField[name=PU, width=120pt, height=26pt, bordercolor=, value={Power Ups}, charsize=16pt]{}};
+    
+    % Written Practice 1-5
+    \CustomBox{0.3in}{6.6in}{1}
+    \CustomBox{4.4in}{6.6in}{2}
+    \CustomBox{0.3in}{3.28in}{3}
+    \CustomBox{4.4in}{3.28in}{4}
+    \CustomBox{0.3in}{0in}{5} % Final box on left side
+\end{tikzpicture}
+\end{Form}
+\clearpage
+
+% --- PAGE 2: Written Practice 5-10 ---
+\begin{Form}
+\begin{tikzpicture}[remember picture, overlay, shift={(current page.south west)}]
+    \draw[cyan!30, thin] (0,0) grid [step=0.25in] (8.5in, 11in);
+
+    % Full Grid (No Header) - 3 rows, 2 columns
+    \draw[black, ultra thick] (4.25in, 0in) -- (4.25in, 11in);
+    \draw[black, ultra thick] (0, 11in) -- (8.5in, 11in);
+    \draw[black, ultra thick] (0, 7.33in) -- (8.5in, 7.33in);
+    \draw[black, ultra thick] (0, 3.66in) -- (8.5in, 3.66in);
+    \draw[black, ultra thick] (0, 0in) -- (8.5in, 0in);
+
+    % Written Practice 6-11
+    \CustomBox{0.3in}{10.95in}{5}
+    \CustomBox{4.4in}{10.95in}{6}
+    \CustomBox{0.3in}{7.28in}{7}
+    \CustomBox{4.4in}{7.28in}{8}
+    \CustomBox{0.3in}{3.6in}{9}
+    \CustomBox{4.4in}{3.6in}{10}
+\end{tikzpicture}
+\end{Form}
+
+\end{document}
