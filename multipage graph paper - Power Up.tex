@@ -14,14 +14,14 @@
   \fontsize{24}{28}\selectfont\bfseries
 }
 
-% Command to draw a box number field with "Written Practice" prefix
+% Command to draw a box number field with "Practice Set" prefix
 \newcommand{\CustomBox}[3]{% #1=X, #2=Y, #3=Value
     \node[anchor=north west] at (#1, #2) {
-        \TextField[name=field#3, width=180pt, height=26pt, bordercolor=, align=0, value={Written Practice #3:}, charsize=14pt]{}
+        \TextField[name=field#3, width=180pt, height=26pt, bordercolor=, align=0, value={Practice Set #3:}, charsize=14pt]{}
     };
 }
 
-% --- PAGE 1: Power Ups + Written Practice 1-5 ---
+% --- PAGE 1: Power Ups + Practice Set A-D ---
 \begin{Form}
 \begin{tikzpicture}[remember picture, overlay, shift={(current page.south west)}]
     \draw[cyan!30, thin] (0,0) grid [step=0.25in] (8.5in, 11in);
@@ -49,17 +49,17 @@
     % Power Ups Label
     \node[anchor=north west] at (0.3in, 9.95in) {\TextField[name=PU, width=120pt, height=26pt, bordercolor=, value={Power Ups}, charsize=16pt]{}};
     
-    % Written Practice 1-5
-    \CustomBox{0.3in}{6.6in}{1}
-    \CustomBox{4.4in}{6.6in}{2}
-    \CustomBox{0.3in}{3.28in}{3}
-    \CustomBox{4.4in}{3.28in}{4}
-    \CustomBox{0.3in}{0in}{5} % Final box on left side
+    % Practice Set 1-5
+    \CustomBox{0.3in}{6.6in}{A}
+    \CustomBox{4.4in}{6.6in}{B}
+    \CustomBox{0.3in}{3.28in}{C}
+    \CustomBox{4.4in}{3.28in}{D}
+    % \CustomBox{0.3in}{0in}{5} % Final box on left side
 \end{tikzpicture}
 \end{Form}
 \clearpage
 
-% --- PAGE 2: Written Practice 5-10 ---
+% --- PAGE 2: Practice Set E-J ---
 \begin{Form}
 \begin{tikzpicture}[remember picture, overlay, shift={(current page.south west)}]
     \draw[cyan!30, thin] (0,0) grid [step=0.25in] (8.5in, 11in);
@@ -71,13 +71,13 @@
     \draw[black, ultra thick] (0, 3.66in) -- (8.5in, 3.66in);
     \draw[black, ultra thick] (0, 0in) -- (8.5in, 0in);
 
-    % Written Practice 6-11
-    \CustomBox{0.3in}{10.95in}{5}
-    \CustomBox{4.4in}{10.95in}{6}
-    \CustomBox{0.3in}{7.28in}{7}
-    \CustomBox{4.4in}{7.28in}{8}
-    \CustomBox{0.3in}{3.6in}{9}
-    \CustomBox{4.4in}{3.6in}{10}
+    % Practice Set 6-11
+    \CustomBox{0.3in}{10.95in}{E}
+    \CustomBox{4.4in}{10.95in}{F}
+    \CustomBox{0.3in}{7.28in}{G}
+    \CustomBox{4.4in}{7.28in}{H}
+    \CustomBox{0.3in}{3.6in}{I}
+    \CustomBox{4.4in}{3.6in}{J}
 \end{tikzpicture}
 \end{Form}
 
